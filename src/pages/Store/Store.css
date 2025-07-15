@@ -1,0 +1,57 @@
+.Home {
+    /* display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px; */
+    display: grid;
+    grid-template-areas: 
+    "Filters Product"
+    "Filters Product"
+    "Numeration Numeration";
+    grid-template-columns: minmax(250px, 300px) 1fr;  /* Ancho controlado para filtros */
+    padding: 20px;
+    gap: 20px;
+}
+
+.Filters{
+    grid-area: Filters;
+    padding: 10px 15px;
+    align-self: start; /* Evita que ocupe altura completa */
+}
+
+.Products {
+    grid-area: Product;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 280px));/* Grid responsivo */
+    gap: 20px;
+    padding: 30px 20px;
+    min-width: 0; /* Permite que se reduzca al realizar un responsive*/
+}
+
+.Numeration{
+    grid-area: Numeration;
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+    .Home {
+        grid-template-areas: 
+            "Filters"
+            "Product"
+            "Numeration";
+        grid-template-columns: 1fr;
+    }
+    
+    .Filters {
+        position: static;
+        max-height: none;
+    }
+
+    .Products{
+        place-items: center;
+    }
+}
