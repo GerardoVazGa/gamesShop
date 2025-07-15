@@ -1,0 +1,27 @@
+.filters-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    padding: 5px 10px;
+}
+
+.filter-platform{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    color: #fff;
+}
+
+.filter-price{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+    .filters-content{
+        flex-direction: row;
+    }
+}

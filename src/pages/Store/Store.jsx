@@ -1,20 +1,18 @@
 import { useState } from 'react';
 import { ProductCard } from '../../components/ProductCardComponent/ProductCard.jsx';
 import { useVideoGames } from '../../hooks/useVideogames.jsx'
-import './Store.css'
-
-// import { Filter } from '../components/FiltersProduct/Filter';
-// import { useFilter } from '../hooks/useFilters';
+import { Filter } from '../../components/FilterComponent/Filter.jsx';
+import { useFilter } from '../../hooks/useFilters.jsx';
 // import { NumbersPages } from '../components/NumberPages/NumbersPages';
-// import 'Store.css';
+import './Store.css'
 
 export function Store() {
     const {listVideoGames, isLoading, error} = useVideoGames()
-    // const {handleFilters} = useFilter()
+    const {handleFilters} = useFilter()
     const [currentPage, setCurrentPage] = useState(1)
     const [limit, setLimit] = useState(6)
 
-    const filterListVideogames = listVideoGames
+    const filterListVideogames = handleFilters(listVideoGames)
 
     const indexInit = (currentPage - 1) * limit
     const indexEnd  = indexInit + limit
@@ -30,9 +28,9 @@ export function Store() {
     return (
         <div className="Home">
             {/* <button onClick={restoreStoke}>Resetear stoke demo</button> */}
-            {/* <aside className='Filters'>
+            <aside className='Filters'>
                 <Filter />
-            </aside> */}
+            </aside>
             <div className="Products">
                 {filterListVideogames
                     .map((game) => <ProductCard key={game.id} game={game} />)

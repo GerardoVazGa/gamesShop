@@ -23,7 +23,7 @@ export function useVideoGames(params = {}){
         }
 
         obtainVideoGames()
-    }, [])
+    }, [listVideoGames.length, params])
 
     const updateStockProduct = (gameCart) => { // Actualiza el stock del producto en caso de comprar uno
         setListVideoGames(prevGames => 
