@@ -1,3 +1,5 @@
+import { NextArrowIcon } from "../icons/NextArrowIcon";
+import { PrevArrowIcon } from "../icons/PrevArrowIcon";
 import "./Pagination.css";
 
 export function Pagination({
@@ -50,11 +52,12 @@ export function Pagination({
     return (
         <div className="pagination-container">
             <button
+                className="prev-button"
                 onClick={() =>
-                    setCurrentPage((currentPage) => Math.max(currentPage - 1, 1))
+                    setCurrentPage((currentPage) => Math.max(currentPage - 1, 1)) // Evita que se vaya a una página menor a 1
                 }
             >
-                Prev
+                <PrevArrowIcon color={"white"} size={20}/>
             </button>
             {numbersPage.map((number, index) =>
                 number === "..." ? (
@@ -74,13 +77,14 @@ export function Pagination({
                 )
             )}
             <button
+                className="next-button"
                 onClick={() =>
                     setCurrentPage((currentPage) =>
-                        Math.min(currentPage + 1, pagesShowed)
+                        Math.min(currentPage + 1, pagesShowed) // Evita que se vaya a una página mayor al total de páginas
                     )
                 }
             >
-                Next
+                <NextArrowIcon color={"white"} size={20}/>
             </button>
         </div>
     );
