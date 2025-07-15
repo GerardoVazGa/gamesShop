@@ -1,0 +1,111 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(22, 21, 21);
+    position: sticky; /*Se vuelve fijo al hacer scroll*/
+    top: 0;
+    padding: 10px;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.navbar.scrolled {
+    background-color: #33333365;
+}
+
+.navbar-logo-items{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+}
+
+.logo-name{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+
+.logo{
+    width: 70px;
+    height: 50px;
+    border: none;
+    border-radius: 13px;
+    object-fit: cover; /*Ajusta el logo o imagen al tamaño del contendeor*/
+}
+
+.name{
+    color: #fff;
+    font-size: 1rem;
+
+}
+
+.navbar-options {
+    display: flex;
+    color: #fff;
+    gap: 20px;
+    list-style: none;
+    padding: 10px;
+}
+
+.option a{
+    color: white;
+}
+
+.option a:link{
+    text-decoration: none;
+    
+}
+
+.option:active{
+    border-bottom: 2px;
+    border-color: blue;
+}
+
+.cart-login{
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+.Ham-button{
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .Ham-button{
+        display: block;
+    }
+
+    .navbar-options{
+        position: fixed;
+        top: 70px;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.4s ease-in-out;
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+        visibility: hidden;
+        opacity: 0;
+        background-color: #16151573;
+        z-index: 999;
+    }
+
+    .navbar-options.show{
+        opacity: 1;
+        visibility: visible;
+        height: 100vh;
+    }
+
+    .logo-name{
+        justify-content: center;
+        align-items: center;
+    }
+    
+}
