@@ -3,14 +3,14 @@ import { ProductCard } from '../../components/ProductCardComponent/ProductCard.j
 import { useVideoGames } from '../../hooks/useVideogames.jsx'
 import { Filter } from '../../components/FilterComponent/Filter.jsx';
 import { useFilter } from '../../hooks/useFilters.jsx';
-// import { NumbersPages } from '../components/NumberPages/NumbersPages';
+import { Pagination } from '../../components/PaginationComponent/Pagination.jsx';
 import './Store.css'
 
 export function Store() {
     const {listVideoGames, isLoading, error} = useVideoGames()
     const {handleFilters} = useFilter()
     const [currentPage, setCurrentPage] = useState(1)
-    const [limit, setLimit] = useState(6)
+    const [limit] = useState(6)
 
     const filterListVideogames = handleFilters(listVideoGames)
 
@@ -36,14 +36,14 @@ export function Store() {
                     .map((game) => <ProductCard key={game.id} game={game} />)
                     .slice(indexInit, indexEnd)}
             </div>
-            {/* <footer className='Numeration'>
-                <NumbersPages
-                    currentPage={currentPage}
-                    limit={limit}
-                    listVideoGames={filterListVideogames}
-                    setCurrentPage={setCurrentPage}
+            <footer className='Numeration'>
+                <Pagination
+                    currentPage={currentPage} // Página actual
+                    limit={limit} // Número de elementos por página
+                    listVideoGames={filterListVideogames} // Lista de videojuegos filtrada
+                    setCurrentPage={setCurrentPage} // Función para actualizar la página actual
                 />
-            </footer> */}
+            </footer>
         </div>
     );
 }
