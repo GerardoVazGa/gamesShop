@@ -2,6 +2,7 @@ import './Cart.css'
 import { useCart } from "../../hooks/useCart"
 import { CartProd } from '../CartProd/CartProd'
 import { BuyIcon } from '../icons/BuyIcon'
+import { CloseIcon } from '../icons/CloseIcon'
 
 export function Cart(){
     const {cartItems, isCartOpen, handleCloseCart, handleBuyCart} = useCart()
@@ -11,7 +12,9 @@ export function Cart(){
         <>
             <div className={sidebar}>
                 <section className='button-close'>
-                    <button onClick={handleCloseCart}>X</button>
+                    <button onClick={handleCloseCart}>
+                        <CloseIcon color="#e20a0a" size={40} strokeWidth={2}/>
+                    </button>
                 </section>
                 <section className='cart-products'>
                     {cartItems.map(game => (
