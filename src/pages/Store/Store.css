@@ -23,7 +23,6 @@
 
 .Products {
     grid-area: Product;
-    width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 280px));/* Grid responsivo */
     gap: 20px;

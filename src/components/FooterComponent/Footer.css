@@ -1,0 +1,29 @@
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    flex-wrap: wrap;
+    background-color: rgb(22, 21, 21);
+}
+
+.footer-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 12px;
+}
+
+.footer-product {
+    color: #fff;
+    text-align: justify;
+    padding: 5px 10px;
+}
+
+.footer-product h3{
+    text-align: left;
+}
+
+.footer-product-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}

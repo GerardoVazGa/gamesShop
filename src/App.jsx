@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router'
 import './App.css'
 import { CartProvider } from './Context/CartContext'
 import { Cart } from './components/CartComponent/Cart'
+import { Footer } from './components/FooterComponent/Footer'
 
 function App() {
 
@@ -22,8 +23,8 @@ function App() {
                 <Route path="/faq" element={<p>FAQ to gamezone</p>} />
               </Routes>
             </div>
+            <Footer />
           </div>
-
           <Cart />
         </FilterProvider>
       </CartProvider>
