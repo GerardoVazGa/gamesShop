@@ -3,10 +3,12 @@ import "./NavBar.css";
 import {useCart} from "../../hooks/useCart";
 import { HamButton } from "../HamburgerButtonComponent/HamButton";
 import {NavLink} from 'react-router'
+import { Cart } from "../CartComponent/Cart";
+import { CartIcon } from "../icons/CartIcon";
 
 export function NavBar() {
     const [isScroll, setIsScroll] = useState(false)
-    const { handleOpenCart } = useCart()
+    const {cartItems, handleOpenCart, isCartOpen } = useCart()
     const [isHamburgerOpen, setIsHamburgerOpen] = useState(false)
 
 
@@ -52,7 +54,11 @@ export function NavBar() {
                 <div className="cart-login">
                     <div className="cart-button-content">
                         <button className="cart-button" onClick={handleOpenCart}>
-                            <img src="/images/cart.svg" />
+                            <CartIcon color="lightgray" size={30} />
+                            {
+                                isCartOpen ? null : ( cartItems.length > 0 ? (<span className="cart-amount">{cartItems.length}</span>) : null
+                                )  
+                            }
                         </button>
                     </div>
                     <div className="Ham-button">

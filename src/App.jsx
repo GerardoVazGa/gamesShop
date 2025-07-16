@@ -17,7 +17,7 @@ function App() {
             <NavBar />
             <div className="Home-container">
               <Routes >
-                {/* <Route path="/" element={<Home />} /> */}
+                <Route path="/" element={<Store />} />
                 <Route path="/store" element={<Store />} />
                 <Route path="/about" element={<p>About to gamezone</p>} />
                 <Route path="/faq" element={<p>FAQ to gamezone</p>} />
