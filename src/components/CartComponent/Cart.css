@@ -1,0 +1,59 @@
+.cart-container{
+    position: fixed; /*Posiciona el container de manera que no se mueva al scrolear*/
+    top: 0; /*Posiciona el container arriba*/
+    right: 0; /*Posiciona el container a la derecha*/
+    z-index: 1000; /*Coloca el container hasta los más adelante de la pagina*/
+    width: 0; /*Incia en cero el container*/
+    height: 100vh;
+    background-color: #3d3c3c;
+    transition: all 0.4s ease-in-out; /*Se aplica la transicion de open*/
+    overflow: hidden; /*Hace que no se muestre el container al estar cerrado*/
+    visibility: hidden; /*Hace que no se muestre el container al estar cerrado*/
+    opacity: 0; /*Hace que no se muestre el container al estar cerrado*/
+    padding: 15px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cart-container.open{ /*Aplica una clase de abierto al container esto seria una transicion*/
+    width: 420px;
+    visibility: visible;
+    opacity: 1;
+}
+
+.button-close{
+    display: flex;
+    justify-content: end;
+}
+
+.cart-products{
+    padding: 5px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-height: 500px; /*Tamaño maximo en que solo los productos se vean sin scroll*/
+    overflow-y: auto; /* Activa el scroll si hay muchos productos */
+}
+
+.cart-products::-webkit-scrollbar {
+    width: 6px;
+    background: transparent;
+}
+
+.cart-products::-webkit-scrollbar-button {
+    display: none;
+}
+
+.cart-products:hover::-webkit-scrollbar-thumb {
+    background: rgba(151, 145, 145, 0.548);
+    border-radius: 3px;
+}
+
+@media screen and (max-width: 450px){
+    .cart-container.open{ /*Aplica una clase de abierto al container esto seria una transicion*/
+        width: 75%;
+        visibility: visible;
+        opacity: 1;
+    }
+}

@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import "./NavBar.css";
-// import { useCart } from "../../hooks/useCart";
+import {useCart} from "../../hooks/useCart";
 import { HamButton } from "../HamburgerButtonComponent/HamButton";
 import {NavLink} from 'react-router'
 
 export function NavBar() {
     const [isScroll, setIsScroll] = useState(false)
-    // const { handleOpenCart } = useCart()
+    const { handleOpenCart } = useCart()
     const [isHamburgerOpen, setIsHamburgerOpen] = useState(false)
 
 
@@ -50,11 +50,11 @@ export function NavBar() {
                     </div>
                 </div>
                 <div className="cart-login">
-                    {/* <div className="cart-button-content">
+                    <div className="cart-button-content">
                         <button className="cart-button" onClick={handleOpenCart}>
                             <img src="/images/cart.svg" />
                         </button>
-                    </div> */}
+                    </div>
                     <div className="Ham-button">
                         <HamButton isMenuOpen={isHamburgerOpen} handleMenuOpen={handleHamburgerMenu} />
                     </div>

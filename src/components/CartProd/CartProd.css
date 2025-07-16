@@ -1,0 +1,111 @@
+.cart-prod-container{
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    column-gap: 5px;
+    border-radius: 5px;
+    padding: 10px 15px;
+    background-color: rgb(37, 35, 35);
+}
+
+.img-prod-container{
+    width: 100px; 
+    height: 100px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Para que la imagen no sobresalga */
+
+}
+
+.img-prod-container img{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+.prod-content{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+}
+
+.prod-name{
+    color: #fff;
+    text-align: left;
+    font-size: 0.9rem;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Texto muy largo se corta con ... */
+}
+
+.amount-prod{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 15px;
+
+}
+
+.amount-prod > button{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.amount-prod > button:hover{
+    background-color: rgba(138, 133, 133, 0.651);
+}
+
+.minus-button{
+    display: grid;
+    border: 2px solid #f15247;
+    background-color: rgba(160, 154, 154, 0.651);
+    place-content: center;
+}
+
+.plus-button{
+    display: grid;
+    border: 2px solid #12d426;
+    background-color: rgba(160, 154, 154, 0.651);
+    place-content: center;
+    
+}
+
+.quantity{
+    color: #fff;
+}
+
+.delete-button{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.delete-button button{
+    border: 1px solid red;
+    border-radius: 50%;
+    padding: 5px;
+    background-color: rgba(160, 154, 154, 0.651);
+    cursor: pointer;
+}
+
+.delete-button button:hover{
+    background-color: rgba(138, 133, 133, 0.651);
+}
+
+
+@media screen and (max-width: 375px){
+    .cart-prod-container{
+        grid-template-columns: 80px 1fr;
+        padding: 5px 7px;
+    }
+
+    .img-prod-container {
+        width: 80px;
+        height: 80px;
+    }
+    
+}

@@ -1,7 +1,7 @@
 import './ProductCard.css'
-// import { useCart } from '../hooks/useCart'
+import { useCart } from '../../hooks/useCart'
 export function ProductCard({game}){
-    // const {handleAddCart} = useCart()
+    const {handleAddCart} = useCart()
     const gamePrice = `$${game.price.toFixed(2)}`
     return(
         <div className="product-card">
@@ -17,7 +17,7 @@ export function ProductCard({game}){
             </section>
             <div className="product-card-buying">
                 <p className={game.stock > 0 ? '' : 'notStock'}>{game.stock > 0 ? game.stock : 'No hay en Stock'}</p>
-                <button className="button-buying" >
+                <button className="button-buying" onClick={() => handleAddCart(game)}>
                     <img className="image-button" src="/images/cart.svg"/>
                 </button>
             </div>
