@@ -50,6 +50,25 @@
     border-radius: 3px;
 }
 
+.buy-button-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.buy-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    background: #ab35fae1; /* Un color llamativo como rojo/naranja */
+    border-radius: 5px;
+    text-decoration: none;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
 @media screen and (max-width: 450px){
     .cart-container.open{ /*Aplica una clase de abierto al container esto seria una transicion*/
         width: 75%;
