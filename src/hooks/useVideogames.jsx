@@ -3,15 +3,18 @@ import { useState } from "react";
 import { fetchDataVideoGames } from "../services/fetchDataVideogames";
 
 export function useVideoGames(params = {}){
-    const localState = JSON.parse(localStorage.getItem('gamesProd')) || []
-    const [listVideoGames, setListVideoGames] = useState(localState)
+    
+    const [listVideoGames, setListVideoGames] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const [error, setError] = useState('')
 
     useEffect(() => {
         const obtainVideoGames = async () => {
             try {
-                if(listVideoGames.length === 0){
+                const localState = JSON.parse(localStorage.getItem('gamesProd')) || []
+                if(localState.length > 0){
+                    setListVideoGames(localState)
+                } else {
                     const dataListVideogames = await fetchDataVideoGames(params)
                     setListVideoGames(dataListVideogames)
                 }
@@ -23,7 +26,7 @@ export function useVideoGames(params = {}){
         }
 
         obtainVideoGames()
-    }, [listVideoGames.length, params])
+    }, [])
 
     const updateStockProduct = (gameCart) => { // Actualiza el stock del producto en caso de comprar uno
         setListVideoGames(prevGames => 
@@ -39,22 +42,24 @@ export function useVideoGames(params = {}){
     }
 
     useEffect(() => {
-        localStorage.setItem("gamesProd", JSON.stringify(listVideoGames))
+        if(listVideoGames.length > 0){
+            localStorage.setItem('gamesProd', JSON.stringify(listVideoGames))
+        }
     }, [listVideoGames])
 
     console.log(listVideoGames)
 
-    const restoreStoke = async () => {
-        localStorage.removeItem("gameProd")
+    const restoreStock = async () => {
+        localStorage.removeItem("gamesProd")
         try {
             const dataListVideogames = await fetchDataVideoGames(params)
             setListVideoGames(dataListVideogames)
-            
+            setIsLoading(false)
         } catch (error) {
             setError('Error obtain list videogames:', error.message)
         }
 
     }
 
-    return {listVideoGames, isLoading, error, updateStockProduct, restoreStoke}
+    return {listVideoGames, isLoading, error, updateStockProduct, restoreStock}
 }
