@@ -6,6 +6,7 @@ import './App.css'
 import { CartProvider } from './Context/CartContext'
 import { Cart } from './components/CartComponent/Cart'
 import { Footer } from './components/FooterComponent/Footer'
+import { Home } from './pages/Home/Home'
 
 function App() {
 
@@ -17,7 +18,7 @@ function App() {
             <NavBar />
             <div className="Home-container">
               <Routes >
-                <Route path="/" element={<Store />} />
+                <Route path="/" element={<Home />} />
                 <Route path="/store" element={<Store />} />
                 <Route path="/about" element={<p>About to gamezone</p>} />
                 <Route path="/faq" element={<p>FAQ to gamezone</p>} />
