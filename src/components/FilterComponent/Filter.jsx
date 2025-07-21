@@ -20,6 +20,25 @@ export function Filter() {
         {label: 'more 800', min:800, max: Infinity}
     ]
 
+    const genres = [
+        "All",
+        "Action",
+        "Adventure",
+        "RPG",
+        "Shooter",
+        "Strategy",
+        "Sports",
+        "Simulation",
+        "Puzzle",
+        "Horror",
+        "Platformer",
+        "Racing",
+        "Fighting",
+        "Indie",
+        "Multiplayer",
+        "Open World",
+    ]
+
     return (
       <div className="filters-content">
             <section className="filter-platform">
@@ -54,6 +73,23 @@ export function Filter() {
 
                         />
                         {price.label}
+                    </label>
+                ))}
+            </section>
+
+            <section className="filter-platform">
+                <h3>Genre</h3>
+                {genres.map((genre, index) => (
+                    <label key={index}>
+                        <input
+                            type="radio"
+                            value={genre}
+                            checked={filters.genres === genre}
+                            onChange={(e) =>
+                                setFilters({ ...filters, genres: e.target.value })
+                            }
+                        />
+                        {genre}
                     </label>
                 ))}
             </section>
