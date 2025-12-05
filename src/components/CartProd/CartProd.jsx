@@ -1,7 +1,7 @@
 import { useCart } from '../../hooks/useCart'
-import { MinusIcon } from '../Icons/MinusIcon.jsx'
-import { PlusIcon } from '../Icons/PlusIcon.jsx'
-import { TrashIcon } from '../Icons/TrashIcon.jsx'
+import { MinusIcon } from '../icons/MinusIcon.jsx'
+import { PlusIcon } from '../icons/PlusIcon.jsx'
+import { TrashIcon } from '../icons/TrashIcon.jsx'
 import './CartProd.css'
 
 export function CartProd({gameCartList}){
