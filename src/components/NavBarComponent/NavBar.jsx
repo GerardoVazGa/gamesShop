@@ -42,12 +42,12 @@ export function NavBar() {
                 <div className="navbar-logo-items">
                     <div className="logo-name">
                         <img className='logo' src="/images/logo.jpg" alt="" />
-                        <h1 className="name">Gamer Zone</h1>
+                        <h1 className="name">GameZone</h1>
                     </div>
                     <div className={hamburgerMenu}>
                             <li className="option"><NavLink to="/">Home</NavLink></li>
                             <li className="option"><NavLink to="/store">Store</NavLink></li>
-                            <li className="option"><NavLink to="/about">About Game Zone</NavLink></li>
+                            <li className="option"><NavLink to="/about">About GameZone</NavLink></li>
                             <li className="option"><NavLink to="/faq">FAQ</NavLink></li>
                     </div>
                 </div>
