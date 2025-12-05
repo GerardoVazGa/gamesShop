@@ -35,6 +35,10 @@ export function NavBar() {
         setIsHamburgerOpen(!isHamburgerOpen)
     }
 
+    const closeMenu = () => {
+        setIsHamburgerOpen(false)
+    }
+
     const hamburgerMenu = isHamburgerOpen ? 'navbar-options show' : 'navbar-options'
     return (
         <>
@@ -45,10 +49,10 @@ export function NavBar() {
                         <h1 className="name">GameZone</h1>
                     </div>
                     <div className={hamburgerMenu}>
-                            <li className="option"><NavLink to="/">Home</NavLink></li>
-                            <li className="option"><NavLink to="/store">Store</NavLink></li>
-                            <li className="option"><NavLink to="/about">About GameZone</NavLink></li>
-                            <li className="option"><NavLink to="/faq">FAQ</NavLink></li>
+                            <li className="option"><NavLink to="/" onClick={closeMenu}>Home</NavLink></li>
+                            <li className="option"><NavLink to="/store" onClick={closeMenu}>Store</NavLink></li>
+                            <li className="option"><NavLink to="/about" onClick={closeMenu}>About GameZone</NavLink></li>
+                            <li className="option"><NavLink to="/faq" onClick={closeMenu}>FAQ</NavLink></li>
                     </div>
                 </div>
                 <div className="cart-login">
